@@ -1,0 +1,32 @@
+.pdf-parser {
+  padding: 20px;
+  height: inherit;
+}
+
+html[screen='small'] .pdf-parser {
+  padding: 10px;
+}
+
+.desc {
+  margin: 0.2rem 0 1.2rem;
+}
+
+.drawing-board {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  padding: 8px;
+  width: 26rem;
+  min-height: calc(100vh - 80px - 60px);
+  border: var(--border);
+  border-radius: var(--border-radius-base);
+}
+
+html[screen='small'] .drawing-board {
+  width: 100%;
+}
+
+.page {
+  box-shadow: var(--box-shadow-light);
+}

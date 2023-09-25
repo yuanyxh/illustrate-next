@@ -1,0 +1,46 @@
+'use client';
+import 'client-only';
+import { classnames, composeClass } from '@/_libs';
+import style from './Text.module.css';
+
+interface TextProps extends ChildProps<HTMLSpanElement> {
+  type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+  size?: 'default' | 'small' | 'large';
+  block?: boolean;
+  truncated?: boolean;
+}
+
+const generateClass = classnames(style);
+
+/**
+ * @description 文本
+ */
+export default function Text(props: TextProps) {
+  const {
+    children,
+    className = '',
+    style,
+    type = 'default',
+    size = 'default',
+    block = false,
+    truncated = false,
+    ...nativeProps
+  } = props;
+
+  const textType = generateClass(['text', `text-${type}`, `text-${size}`]);
+
+  const textStyle = generateClass({
+    'is-block': block,
+    'is-truncated': truncated
+  });
+
+  return (
+    <span
+      className={composeClass(textType, textStyle, className)}
+      style={style}
+      {...nativeProps}
+    >
+      {children}
+    </span>
+  );
+}
