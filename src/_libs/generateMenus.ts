@@ -4,7 +4,7 @@ import path from 'path';
 
 const PATH = {
   PERFIX: '/sequel/',
-  PAGE: '/page.js'
+  PAGE: '/page.tsx'
 };
 const REGEXP = {
   title: createCommonRegexp('title'),
@@ -62,7 +62,7 @@ function isRoute(name: string) {
   return firstChar !== '_' && /\w/.test(firstChar);
 }
 
-const directory = path.join(__dirname, '../app' + PATH.PERFIX);
+const directory = path.join(process.cwd(), '/src/app' + PATH.PERFIX);
 
 export function getAllMenu() {
   const catalog = fs.readdirSync(directory);
